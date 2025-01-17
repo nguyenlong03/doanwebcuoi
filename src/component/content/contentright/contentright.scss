@@ -1,0 +1,28 @@
+.right{
+    width: 100%;
+    margin-left: 20px;
+    .right_top{
+        height: 200px;
+        .right_giohang{
+            display: flex;
+            gap: 10px;
+           
+        }
+        .right_giaothieu{
+            display: flex;
+            gap: 10px;
+        }
+    }
+    .right_quangcao{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .quangcao_img{
+           height: 250px;
+           width: 100%;
+           object-fit: cover;
+        }
+    }
+   
+
+}

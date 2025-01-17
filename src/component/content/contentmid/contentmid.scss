@@ -1,0 +1,66 @@
+.content {
+    flex: 1;
+    padding: 10px;
+    margin-left: 30px;
+
+    .banner {
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    .books {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .book {
+        width: 220px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .book img {
+        max-width: 100%;
+        height: auto;
+        height: 200px;
+        margin-left: 30px;
+    }
+   
+    
+    .book button {
+        background-color: #008000;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    
+    .book button:hover {
+        background-color: #005500;
+    }
+
+    /* Banner.css */
+/* contentmid.scss */
+.banner-container {
+  
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    height: 250px;
+  }
+  
+  .banner {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng cuộn mượt mà */
+  }
+  
+  .banner img {
+    width: 100%; /* Mỗi ảnh chiếm toàn bộ chiều rộng của container */
+    height: auto;
+  }
+  
+  
+}
+

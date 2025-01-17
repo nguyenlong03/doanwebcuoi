@@ -1,0 +1,113 @@
+footer {
+  background: linear-gradient(to right, #000000, #156275);
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding-top: 50px; /* Adjust to create space for the curve */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 20px 0;
+}
+
+.footer-column {
+  margin-right: 40px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 0;
+//   margin-bottom: 5px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 5px;
+  font-weight: 600;
+  padding: 3px;
+}
+
+ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+.newsletter-form {
+  display: flex;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 10px;
+  outline: none;
+  width: 200px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.newsletter-form button {
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: white;
+  border: none;
+  color: #000000;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.newsletter-form button:hover {
+  background-color: #0d515a;
+}
+
+.bottom-bar {
+  background-color: #d9d9d9;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.bottom-bar p {
+  margin: 5px 0;
+}
+
+.social-icons .icon {
+  font-size: 24px;
+  color: rgb(167, 0, 70);
+  margin: 0 8px;
+  transition: all 0.3s ease;
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+}
+.p {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  
+  a{
+    text-decoration: none;
+    color: black;
+}
+.sdt{
+    color: black;
+}
+  
+}
+

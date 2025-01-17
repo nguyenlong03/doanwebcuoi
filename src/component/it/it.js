@@ -1,75 +1,68 @@
-import React from "react";
-import "../contentmid/contentmid.scss";
-import { useState, useEffect } from "react";
-import anh1 from "../../../assets/anh1.jpg";
-import anh2 from "../../../assets/banner2.png";
-import anh3 from "../../../assets/banner1.jpg";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-const Contentmid = () => {
+import "../it/it.scss";
+import anh1 from "../../assets/anh1.jpg";
+import anh2 from "../../assets/anh2.jpg";
+import anh3 from "../../assets/anh3.jpeg";
+
+const It = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [anh1, anh2, anh3];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Chuyển ảnh mỗi 5 giây
+    }, 3000); // Chuyển ảnh mỗi 3 giây
 
     return () => clearInterval(interval);
   }, []);
 
-  const productsvanhoc = [
+  const navigate = useNavigate();
+
+  const products = [
     {
       id: 1,
-      name: "Giáo trình văn học dân gian Việt Nam",
+      name: "Code dạo ký sự",
       price: 61000,
-      image:
-        "https://giaotrinhpdf.com/book_covers/2023/04/03bac39f65ea4eb6ba7831040d8ce0ab.jpg",
+      image: "https://itplus-academy.edu.vn/upload/071663969d40ee0e4a5c57251c1a8993/files/1(23).jpg",
       description: "Cuốn sách về lập trình thú vị.",
     },
     {
       id: 2,
-      name: "Văn học dân gian Việt Nam quyển 2",
+      name: "Gián điệp mạng",
       price: 25000,
-      image: "https://hevobooks.com/wp-content/uploads/2018/09/7X152-1.jpg",
+      image: "https://listsach.com/wp-content/uploads/2019/08/sach-gian-diep-mang-sach-hay-ve-it-lap-trinh-cong-nghe.jpg",
       description: "Học về an ninh mạng.",
     },
     {
       id: 3,
-      name: "Văn học dân gian Việt Nam quyến 1",
+      name: "Bóng ma trên mạng",
       price: 70000,
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH6LIbssdR9Z0OwmowxC2sHn8lZ4sZLnIDdQ&s",
+      image: "https://listsach.com/wp-content/uploads/2019/08/Sach-bong-ma-tren-mang-sach-hay-ve-hacker-lap-trinh-it.jpg",
       description: "Khám phá thế giới hacker.",
     },
     {
       id: 4,
-      name: "Văn học dân gian Vĩnh Long",
+      name: "Nghệ thuật ẩn mình",
       price: 32000,
-      image:
-        "https://nxbhcm.com.vn/Image/Biasach/vanhocdangianvinhlongtap1.jpg",
+      image: "https://itplus-academy.edu.vn/upload/071663969d40ee0e4a5c57251c1a8993/files/4(18).jpg",
       description: "Kỹ năng bảo mật cá nhân.",
     },
     {
       id: 5,
-      name: "Văn học dân gian quyển 3 Việt Nam",
+      name: "Tự học IT tiếng Nhật",
       price: 18000,
-      image:
-        "https://product.hstatic.net/200000900535/product/van-hoc-dan-gian-cai-hay-ve-dep-2_dff1fe87a2fe498aa4b0bb9df8509853_grande.jpg",
+      image: "https://bizweb.dktcdn.net/thumb/grande/100/180/408/products/bo-sach-tieng-nhat-danh-cho-it.jpg?v=1697267168887",
       description: "Sách học tiếng Nhật cho dân IT.",
     },
     {
       id: 6,
-      name: "Văn học dân gian quyển 4 Việt Nam",
+      name: "Tin vào chính mình",
       price: 20000,
-      image: "https://hcmussh.edu.vn/img/news/81178217.jpeg?t=81178222",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlBDkvH8OyYkhUw4TmmO5scEOApJadmDgcBg&s",
       description: "Khơi dậy niềm tin vào bản thân.",
     },
   ];
-
-  const handleViewDetail = (id) => {
-    navigate(`/productvanhoc/${id}`);
-  };
-  const navigate = useNavigate();
 
   // Quản lý số lượng cho từng sản phẩm
   const [quantities, setQuantities] = useState({});
@@ -89,6 +82,11 @@ const Contentmid = () => {
       [id]: Math.max((prev[id] || 1) - 1, 1), // Không cho số lượng nhỏ hơn 1
     }));
   };
+
+  const handleViewDetail = (id) => {
+    navigate(`/product/${id}`);
+  };
+
   return (
     <div className="content">
       <div className="banner-container">
@@ -101,38 +99,37 @@ const Contentmid = () => {
           ))}
         </div>
       </div>
-      <h2>Danh mục sách văn học dân gian</h2>
+
+      <h2>Danh mục sách công nghệ thông tin</h2>
       <div className="books">
-        {productsvanhoc.map((productsvanhoc) => (
-          <div className="book" key={productsvanhoc.id}>
-            <img src={productsvanhoc.image} alt={productsvanhoc.name} />
-            <p>{productsvanhoc.name}</p>
-            <p>Giá: {productsvanhoc.price.toLocaleString()} VND</p>
+        {products.map((product) => (
+          <div className="book" key={product.id}>
+            <img src={product.image} alt={product.name} />
+            <p>{product.name}</p>
+            <p>Giá: {product.price.toLocaleString()} VND</p>
 
             {/* Phần số lượng */}
             <div className="soluong">
               <button
                 className="btn_soluonggiam"
-                onClick={() => handleDecrease(productsvanhoc.id)}
+                onClick={() => handleDecrease(product.id)}
               >
                 -
               </button>
               <input
                 type="number"
-                value={quantities[productsvanhoc.id] || 1} // Hiển thị số lượng riêng biệt cho mỗi sản phẩm
+                value={quantities[product.id] || 1} // Hiển thị số lượng riêng biệt cho mỗi sản phẩm
                 readOnly
               />
               <button
                 className="btn_soluongtang"
-                onClick={() => handleIncrease(productsvanhoc.id)}
+                onClick={() => handleIncrease(product.id)}
               >
                 +
               </button>
             </div>
-            <button
-              onClick={() => handleViewDetail(productsvanhoc.id)}
-              className="btn"
-            >
+
+            <button onClick={() => handleViewDetail(product.id)} className="btn">
               Xem chi tiết
             </button>
             <button className="btn">Mua</button>
@@ -143,4 +140,4 @@ const Contentmid = () => {
   );
 };
 
-export default Contentmid;
+export default It;
