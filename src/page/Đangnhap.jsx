@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../page/Đangnhap.scss";
+import AutherAPI from "../api/uselogin";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      let respont = await AutherAPI.login(email, password);
+      console.log("test respont", respont);
+      if (respont) {
+        alert("đăng nhập thành công");
+      }
+    } catch (error) {
+      alert("đăng nhập thất bại");
+    }
   };
 
   return (
